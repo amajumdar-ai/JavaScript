@@ -1,12 +1,14 @@
 
 /************** 
- * Variables and datatype
+  /*Variables and datatype */
 var firstName = 'Arpita';
-var lastName = Majumdar;
+var lastName = 'Majumdar';
+var isMarried= false;
 var age=20;
-console.log(abc, ismarried);
+console.log(firstName, lastName, isMarried);
+isMarried= true;
+console.log(firstName, lastName, isMarried);
 
-*/
 
 /* Variables mutation and type coerction
 */
