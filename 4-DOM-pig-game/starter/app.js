@@ -20,8 +20,8 @@ var scores, roundScore, activePlayer;
 
 scores=[0,0];
 roundScore=0;
-activePlayer=1;
-//dice=Math.floor(Math.random()*6)+1;
+activePlayer=0;
+dice=Math.floor(Math.random()*6)+1;
 
 
 //document.querySelector('#current-'+ activePlayer).textContent=dice;
@@ -30,12 +30,14 @@ activePlayer=1;
 //var x=document.querySelector('#score-0').textContent;
 //console.log(x);
 
-//document.querySelector('.dice').style.display='none'; //to select the css content
+//document.querySelector('.dice').style.display='none';    
 
 document.getElementById('current-0').textContent=0;
 document.getElementById('current-1').textContent=0;
 document.getElementById('score-0').textContent=0;
 document.getElementById('score-1').textContent=0;
+document.querySelector('.dice').style.display= 'none'; 
+
 
 /*
 Events: Notifications that are sent to notify the code that something happend on the webpage.
@@ -47,13 +49,15 @@ Event Listner: A function that performs action based on a certain event. it wait
 document.querySelector('.btn-roll').addEventListener('click',function(){
 
    // 1. Random number
-
+ 
    var dice=Math.floor(Math.random()*6)+1;
+   
    //2. Display the result
 var diceDOM=document.querySelector('.dice');
 diceDOM.style.display='block';
 diceDOM.src='dice-' + dice +'.png';
-//document.querySelector('#current-'+ activePlayer).textContent=dice;
+document.getElementById('current-'+ activePlayer).textContent=dice;
+// document.getElementById('score-'+ activePlayer).textContent=dice;
 
    //3. Update the round score if the rolled number was not 1
 
@@ -61,12 +65,13 @@ diceDOM.src='dice-' + dice +'.png';
 if(dice !== 1){
 roundScore=roundScore+dice;     
 document.getElementById('current-'+ activePlayer).textContent=roundScore;
+document.getElementById('score-'+ activePlayer).textContent=roundScore;
 }           
 else
 {
-//Next player
-
-    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+nextPlayer();
+/*
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0  ;
     roundScore=0;
     document.getElementById('current-0').textContent=0;
     document.getElementById('current-1').textContent=0;
@@ -74,14 +79,27 @@ else
     document.querySelector('.player-0-panel').classList.toggle('active'); 
     document.querySelector('.player-1-panel').classList.toggle('active');
     document.querySelector('.dice').style.display='none';
-    document.querySelector('.player-0-panel').classList.add('active');
+    //document.querySelector('.player-0-panel').classList.add('active');
     
     //document.querySelector('.player-0-panel').classList.add('active');
     //document.querySelector('.player-1-panel').classList.remove('active');
 
-
+*/
 
 
 
 }
 });
+
+function nextPlayer(){
+   activePlayer === 0 ? activePlayer = 1 : activePlayer = 0  ;
+   roundScore=0;
+   document.getElementById('current-0').textContent=0;
+   document.getElementById('current-1').textContent=0;
+
+   document.querySelector('.player-0-panel').classList.toggle('active'); 
+   document.querySelector('.player-1-panel').classList.toggle('active');
+   document.querySelector('.dice').style.display='none';
+
+
+}
