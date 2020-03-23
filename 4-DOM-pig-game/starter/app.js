@@ -100,7 +100,7 @@ scores[activePlayer]+= roundScore;
 document.getElementById('score-'+ activePlayer).textContent=scores[activePlayer];
 //Check if player won the game---   The first player to reach 100 points on GLOBAL score wins the game
 
-if(scores[activePlayer]>=10)
+if(scores[activePlayer]>=100)
 {
    document.getElementById('name-'+ activePlayer).textContent="Winner!";
    document.querySelector('.dice').style.display='none';
