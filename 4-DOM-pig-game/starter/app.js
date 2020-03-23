@@ -51,13 +51,14 @@ document.querySelector('.btn-roll').addEventListener('click',function(){
 if(gamePlaying){
  // 1. Random number
  
- var dice=Math.floor(Math.random()*6)+1;
+ var dice1=Math.floor(Math.random()*6)+1;
    
  //2. Display the result
 var diceDOM=document.querySelector('.dice');
 diceDOM.style.display='block';
 diceDOM.src='dice-' + dice +'.png';
-document.getElementById('current-'+ activePlayer).textContent=dice;
+//document.getElementById('current-'+ activePlayer).textContent=dice;
+document.getElementById('current-'+ activePlayer).textContent=dice1;
 // document.getElementById('score-'+ activePlayer).textContent=dice;
 
  //3. Update the round score if the rolled number was not 1
